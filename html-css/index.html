@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemplo de Utilização com HTML e CSS</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Exemplo de Utilização com HTML e CSS</h1>
+  <div class="data">
+    <?php
+      // Conexão com o banco de dados
+      $conn = mysqli_connect("localhost", "seu_usuario", "sua_senha", "seu_banco_de_dados");
+
+      // Consulta ao banco de dados
+      $query = "SELECT * FROM usuarios";
+      $result = mysqli_query($conn, $query);
+
+      // Exibição dos dados na página
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo "<p>{$row['nome']} - {$row['email']}</p>";
+      }
+
+      // Fechamento da conexão
+      mysqli_close($conn);
+    ?>
+  </div>
+</body>
+</html>
